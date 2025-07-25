@@ -24,10 +24,10 @@ export const HeroHeader = () => {
     }, [scrollYProgress])
 
     const menuItems = [
-        { name: t('nav.features'), href: '#link' },
-        { name: t('nav.solution'), href: '#link' },
-        { name: t('nav.pricing'), href: '#link' },
-        { name: t('nav.about'), href: '#link' },
+        { name: t('nav.features'), href: '#features' },
+        { name: t('nav.solution'), href: '#advantages' },
+        { name: t('nav.pricing'), href: '#cta' },
+        { name: t('nav.about'), href: '#about' },
     ]
 
     return (
@@ -35,7 +35,7 @@ export const HeroHeader = () => {
             <nav
                 data-state={menuState && 'active'}
                 className={cn('fixed z-20 w-full border-b transition-colors duration-150', scrolled && 'bg-background/50 backdrop-blur-3xl')}>
-                <div className="mx-auto max-w-5xl px-6 transition-all duration-300">
+                <div className="container mx-auto max-w-6xl px-6 transition-all duration-300">
                     <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
                         <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
                             <Link
@@ -84,21 +84,6 @@ export const HeroHeader = () => {
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:items-center">
                                 <LanguageToggle />
-                                <Button
-                                    asChild
-                                    variant="outline"
-                                    size="sm">
-                                    <Link href="#">
-                                        <span>{t('nav.login')}</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm">
-                                    <Link href="#">
-                                        <span>{t('nav.signup')}</span>
-                                    </Link>
-                                </Button>
                             </div>
                         </div>
                     </div>

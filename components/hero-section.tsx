@@ -52,10 +52,10 @@ export default function HeroSection() {
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 -translate-y-1/2 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.01)_70%,transparent_100%)]" />
                 </div>
 
-                <section>
+                <section id="hero">
                     <div className="relative pt-16 sm:pt-20 md:pt-24">
                         <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
-                        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+                        <div className="container mx-auto max-w-6xl px-6">
                             <div className="text-center sm:text-left sm:mx-auto lg:mr-auto lg:mt-0">
                                 <TextEffect
                                     preset="fade-in-blur"
