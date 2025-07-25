@@ -7,7 +7,7 @@ export type Language = 'en' | 'ru' | 'uz'
 export interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  t: (key: keyof TranslationKeys) => string
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -41,7 +41,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   }, [language])
 
   // Translation function
-  const t = (key: string): string => {
+  const t = (key: keyof TranslationKeys): string => {
     const translations = getTranslations(language)
     return translations[key] || key
   }
@@ -60,7 +60,20 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 }
 
 // Translation data
-const translations = {
+type TranslationKeys = {
+  'nav.features': string
+  'nav.solution': string
+  'nav.pricing': string
+  'nav.about': string
+  'nav.login': string
+  'nav.signup': string
+  'hero.title': string
+  'hero.description': string
+  'hero.cta.primary': string
+  'hero.cta.secondary': string
+}
+
+const translations: Record<Language, TranslationKeys> = {
   en: {
     // Navigation
     'nav.features': 'Features',
@@ -108,6 +121,6 @@ const translations = {
   },
 }
 
-const getTranslations = (language: Language) => {
+const getTranslations = (language: Language): TranslationKeys => {
   return translations[language] || translations.en
 } 
