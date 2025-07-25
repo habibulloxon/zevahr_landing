@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -6,6 +7,7 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from './header'
 import heroImage from '@/public/hero_img.png'
+import { useLanguage } from '@/lib/language-context'
 
 const transitionVariants = {
     item: {
@@ -19,7 +21,7 @@ const transitionVariants = {
             filter: 'blur(0px)',
             y: 0,
             transition: {
-                type: 'spring',
+                type: 'spring' as const,
                 bounce: 0.3,
                 duration: 1.5,
             },
@@ -28,6 +30,8 @@ const transitionVariants = {
 }
 
 export default function HeroSection() {
+    const { t } = useLanguage()
+
     return (
         <>
             <HeroHeader />
@@ -49,7 +53,7 @@ export default function HeroSection() {
                                     speedSegment={0.3}
                                     as="h1"
                                     className="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
-                                    Modern staff hiring reimagined.
+                                    {t('hero.title')}
                                 </TextEffect>
                                 <TextEffect
                                     per="line"
@@ -58,7 +62,7 @@ export default function HeroSection() {
                                     delay={0.5}
                                     as="p"
                                     className="mt-8 max-w-2xl text-pretty text-lg">
-                                    Effective companies no longer waste time on initial screening – they work with the best using ZevaHR.
+                                    {t('hero.description')}
                                 </TextEffect>
 
                                 <AnimatedGroup
@@ -82,7 +86,7 @@ export default function HeroSection() {
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
                                             <Link href="#link">
-                                                <span className="text-nowrap">Start Hiring</span>
+                                                <span className="text-nowrap">{t('hero.cta.primary')}</span>
                                             </Link>
                                         </Button>
                                     </div>
@@ -93,7 +97,7 @@ export default function HeroSection() {
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-5 text-base">
                                         <Link href="#link">
-                                            <span className="text-nowrap">Request a demo</span>
+                                            <span className="text-nowrap">{t('hero.cta.secondary')}</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>
@@ -118,14 +122,14 @@ export default function HeroSection() {
                                 />
                                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                                     <Image
-                                        className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
+                                        className="bg-background relative hidden rounded-2xl dark:block"
                                         src={heroImage}
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
                                     />
                                     <Image
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
+                                        className="z-2 border-border/25 relative rounded-2xl border dark:hidden"
                                         src={heroImage}
                                         alt="app screen"
                                         width="2700"

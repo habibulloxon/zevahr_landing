@@ -6,17 +6,13 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { useScroll } from 'motion/react'
-
-const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
-]
+import { useLanguage } from '@/lib/language-context'
+import { LanguageToggle } from '@/components/language-toggle'
 
 export const HeroHeader = () => {
     const [menuState, setMenuState] = React.useState(false)
     const [scrolled, setScrolled] = React.useState(false)
+    const { t } = useLanguage()
 
     const { scrollYProgress } = useScroll()
 
@@ -26,6 +22,13 @@ export const HeroHeader = () => {
         })
         return () => unsubscribe()
     }, [scrollYProgress])
+
+    const menuItems = [
+        { name: t('nav.features'), href: '#link' },
+        { name: t('nav.solution'), href: '#link' },
+        { name: t('nav.pricing'), href: '#link' },
+        { name: t('nav.about'), href: '#link' },
+    ]
 
     return (
         <header>
@@ -79,20 +82,21 @@ export const HeroHeader = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                            <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:items-center">
+                                <LanguageToggle />
                                 <Button
                                     asChild
                                     variant="outline"
                                     size="sm">
                                     <Link href="#">
-                                        <span>Login</span>
+                                        <span>{t('nav.login')}</span>
                                     </Link>
                                 </Button>
                                 <Button
                                     asChild
                                     size="sm">
                                     <Link href="#">
-                                        <span>Sign Up</span>
+                                        <span>{t('nav.signup')}</span>
                                     </Link>
                                 </Button>
                             </div>
