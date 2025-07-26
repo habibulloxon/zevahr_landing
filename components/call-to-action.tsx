@@ -45,7 +45,7 @@ export default function CallToAction() {
                             asChild
                             size="lg"
                             className="w-full mt-auto">
-                            <Link href="/">
+                            <Link href="https://hr-app-dev-main-rrponh.laravel.cloud/register">
                                 <span>{t('cta.button')}</span>
                             </Link>
                         </Button>

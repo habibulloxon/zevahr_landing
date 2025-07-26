@@ -94,7 +94,7 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-6 sm:px-5 text-base w-full sm:w-auto">
-                                            <Link href="#link">
+                                            <Link href="https://hr-app-dev-main-rrponh.laravel.cloud/register">
                                                 <span className="text-nowrap">{t('hero.cta.primary')}</span>
                                             </Link>
                                         </Button>
@@ -105,7 +105,7 @@ export default function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-6 sm:px-5 text-base w-full sm:w-auto">
-                                        <Link href="#link">
+                                        <Link href="https://hr-app-dev-main-rrponh.laravel.cloud/register">
                                             <span className="text-nowrap">{t('hero.cta.secondary')}</span>
                                         </Link>
                                     </Button>
