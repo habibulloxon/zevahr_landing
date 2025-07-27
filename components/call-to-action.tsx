@@ -28,7 +28,7 @@ export default function CallToAction() {
                             asChild
                             size="lg"
                             className="w-full mt-auto">
-                            <Link href="https://hr-app-dev-main-rrponh.laravel.cloud/register">
+                            <Link href="#">
                                 <span>{t('cta.button')}</span>
                             </Link>
                         </Button>
@@ -45,7 +45,7 @@ export default function CallToAction() {
                             asChild
                             size="lg"
                             className="w-full mt-auto">
-                            <Link href="https://hr-app-dev-main-rrponh.laravel.cloud/register">
+                            <Link href="#">
                                 <span>{t('cta.button')}</span>
                             </Link>
                         </Button>
